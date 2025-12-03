@@ -1,0 +1,19 @@
+{{- $clusterName := .Values.clusterName | default "cluster1" -}}
+{{- $baseIpPrefix := .Values.baseIpPrefix | default "10.10" -}}
+{{- $dnsSuffix := .Values.dnsSuffix | default "3gppnetwork.org" -}}
+{{- $count := int (default 100 .Values.count) -}}
+
+{{- range $i, $_ := until $count }}
+{{- $n := add $i 1 }}
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-{{ $clusterName }}-{{ $n }}
+spec:
+  endpoints:
+    - targets:
+        - "{{ $baseIpPrefix }}.{{ $n }}"
+      dnsName: "endpoint-{{ $n }}.{{ $dnsSuffix }}"
+      recordType: "A"
+---
+{{- end }}
