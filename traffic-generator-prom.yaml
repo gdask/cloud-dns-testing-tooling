@@ -1,0 +1,135 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hostlookuper-traffic
+spec:
+  selector:
+    matchLabels:
+      app: hostlookuper-traffic
+  template:
+    metadata:
+      labels:
+        app: hostlookuper-traffic
+    spec:
+      containers:
+      - name: hostlookuper-traffic
+        image: hostlookuper:local
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+        env:
+          - name: HOSTLOOKUPER_INTERVAL
+            value: 1s
+          - name: HOSTLOOKUPER_DNS_SERVERS
+            # CoreDNS zurich, CoreDNS bern
+            value: "udp://172.18.2.0:53,udp://172.18.1.0:53"
+          #- name: HOSTLOOKUPER_HOSTS
+          #  value: "endpoint-1.zurich.3gppnetwork.org,endpoint-2.zurich.3gppnetwork.org,endpoint-3.zurich.3gppnetwork.org"
+          - name: HOSTLOOKUPER_DOMAIN_PROBES
+            value: "/var/domain-probes.txt"
+        ports:
+        - containerPort: 9090
+        volumeMounts:
+        - name: domain-probes-volume
+          mountPath: /var/domain-probes.txt
+          subPath: domain-probes.txt
+          readOnly: true
+      volumes:
+      - name: domain-probes-volume
+        configMap:
+          name: domain-probes
+          items:
+          - key: domain-probes.txt
+            path: domain-probes.txt
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hostlookuper-traffic
+  annotations:
+    prometheus.io/port: "9090"
+    prometheus.io/scrape: "true"
+spec:
+  selector:
+    app: hostlookuper-traffic
+  ports:
+  - port: 9090
+    targetPort: 9090
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  labels:
+    release: prom
+  name: hostlookuper-traffic-prom-cluster
+  namespace: default
+spec:
+  metricsPath: /metrics
+  scheme: HTTP
+  staticConfigs:
+  - labels:
+      cluster: prom-cluster
+      job: hostlookuper-traffic
+      role: dns-probe
+    targets:
+    - hostlookuper-traffic:9090
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: domain-probes
+data:
+  domain-probes.txt: |
+    endpoint-1.zurich.5gc.3gppnetwork.org
+    endpoint-2.zurich.5gc.3gppnetwork.org
+    endpoint-3.zurich.5gc.3gppnetwork.org
+    endpoint-4.zurich.5gc.3gppnetwork.org
+    endpoint-5.zurich.5gc.3gppnetwork.org
+    endpoint-6.zurich.5gc.3gppnetwork.org
+    endpoint-7.zurich.5gc.3gppnetwork.org
+    endpoint-8.zurich.5gc.3gppnetwork.org
+    endpoint-9.zurich.5gc.3gppnetwork.org
+    endpoint-10.zurich.5gc.3gppnetwork.org
+    endpoint-11.zurich.5gc.3gppnetwork.org
+    endpoint-12.zurich.5gc.3gppnetwork.org
+    endpoint-13.zurich.5gc.3gppnetwork.org
+    endpoint-14.zurich.5gc.3gppnetwork.org
+    endpoint-15.zurich.5gc.3gppnetwork.org
+    endpoint-16.zurich.5gc.3gppnetwork.org
+    endpoint-17.zurich.5gc.3gppnetwork.org
+    endpoint-18.zurich.5gc.3gppnetwork.org
+    endpoint-19.zurich.5gc.3gppnetwork.org
+    endpoint-20.zurich.5gc.3gppnetwork.org
+    endpoint-21.zurich.5gc.3gppnetwork.org
+    endpoint-22.zurich.5gc.3gppnetwork.org
+    endpoint-23.zurich.5gc.3gppnetwork.org
+    endpoint-24.zurich.5gc.3gppnetwork.org
+    endpoint-25.zurich.5gc.3gppnetwork.org
+    endpoint-26.zurich.5gc.3gppnetwork.org
+    endpoint-27.zurich.5gc.3gppnetwork.org
+    endpoint-28.zurich.5gc.3gppnetwork.org
+    endpoint-29.zurich.5gc.3gppnetwork.org
+    endpoint-30.zurich.5gc.3gppnetwork.org
+    endpoint-31.zurich.5gc.3gppnetwork.org
+    endpoint-32.zurich.5gc.3gppnetwork.org
+    endpoint-33.zurich.5gc.3gppnetwork.org
+    endpoint-34.zurich.5gc.3gppnetwork.org
+    endpoint-35.zurich.5gc.3gppnetwork.org
+    endpoint-36.zurich.5gc.3gppnetwork.org
+    endpoint-37.zurich.5gc.3gppnetwork.org
+    endpoint-38.zurich.5gc.3gppnetwork.org
+    endpoint-39.zurich.5gc.3gppnetwork.org
+    endpoint-40.zurich.5gc.3gppnetwork.org
+    endpoint-41.zurich.5gc.3gppnetwork.org
+    endpoint-42.zurich.5gc.3gppnetwork.org
+    endpoint-43.zurich.5gc.3gppnetwork.org
+    endpoint-44.zurich.5gc.3gppnetwork.org
+    endpoint-45.zurich.5gc.3gppnetwork.org
+    endpoint-46.zurich.5gc.3gppnetwork.org
+    endpoint-47.zurich.5gc.3gppnetwork.org
+    endpoint-48.zurich.5gc.3gppnetwork.org
+    endpoint-49.zurich.5gc.3gppnetwork.org
+    endpoint-50.zurich.5gc.3gppnetwork.org
+    non-existent-domain.zurich.5gc.3gppnetwork.org
