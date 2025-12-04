@@ -1,4 +1,4 @@
 clusterName: zurich
 baseIpPrefix: "10.1.1"              # will become 10.10.X
-dnsSuffix: "zurich.3gppnetwork.org"       # endpoint-cluster1-X.3gppnetwork.org
+dnsSuffix: "zurich.5gc.3gppnetwork.org"       # endpoint-X.cluster.5gc.3gppnetwork.org
 count: 100                         # how many endpoints to generate
