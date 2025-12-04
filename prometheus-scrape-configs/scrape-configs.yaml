@@ -1,0 +1,146 @@
+
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  labels:
+    release: prom
+  name: forwarder-berne
+  namespace: default
+spec:
+  metricsPath: /metrics
+  scheme: HTTP
+  staticConfigs:
+  - labels:
+      cluster: berne
+      job: forwarder
+      role: forwarder-dns-server
+    targets:
+    - 172.18.1.0:9153
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  labels:
+    release: prom
+  name: forwarder-zurich
+  namespace: default
+spec:
+  metricsPath: /metrics
+  scheme: HTTP
+  staticConfigs:
+  - labels:
+      cluster: zurich
+      job: forwarder
+      role: forwarder-dns-server
+    targets:
+    - 172.18.2.0:9153
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  labels:
+    release: prom
+  name: hostlookuper-prom-cluster
+  namespace: default
+spec:
+  metricsPath: /metrics
+  scheme: HTTP
+  staticConfigs:
+  - labels:
+      cluster: prom-cluster
+      job: hostlookuper
+      role: dns-probe
+    targets:
+    - 10.96.250.78:9090
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  labels:
+    release: prom
+  name: hostlookuper-traffic-prom-cluster
+  namespace: default
+spec:
+  metricsPath: /metrics
+  scheme: HTTP
+  staticConfigs:
+  - labels:
+      cluster: prom-cluster
+      job: hostlookuper-traffic
+      role: dns-probe
+    targets:
+    - hostlookuper-traffic:9090
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  labels:
+    release: prom
+  name: kube-dns-berne
+  namespace: default
+spec:
+  metricsPath: /metrics
+  scheme: HTTP
+  staticConfigs:
+  - labels:
+      cluster: berne
+      job: kube-dns
+      role: kubedns
+    targets:
+    - 172.18.1.2:9153
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  labels:
+    release: prom
+  name: kube-dns-zurich
+  namespace: default
+spec:
+  metricsPath: /metrics
+  scheme: HTTP
+  staticConfigs:
+  - labels:
+      cluster: zurich
+      job: kube-dns
+      role: kubedns
+    targets:
+    - 172.18.2.2:9153
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  labels:
+    release: prom
+  name: pdns-berne
+  namespace: default
+spec:
+  metricsPath: /metrics
+  scheme: HTTP
+  staticConfigs:
+  - labels:
+      cluster: berne
+      job: pdns
+      role: auth-dns-server
+    targets:
+    - 172.18.1.1:8081
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  labels:
+    release: prom
+  name: pdns-zurich
+  namespace: default
+spec:
+  metricsPath: /metrics
+  scheme: HTTP
+  staticConfigs:
+  - labels:
+      cluster: zurich
+      job: pdns
+      role: auth-dns-server
+    targets:
+    - 172.18.2.1:8081
+
