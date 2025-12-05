@@ -41,24 +41,6 @@ kind: ScrapeConfig
 metadata:
   labels:
     release: prom
-  name: hostlookuper-prom-cluster
-  namespace: default
-spec:
-  metricsPath: /metrics
-  scheme: HTTP
-  staticConfigs:
-  - labels:
-      cluster: prom-cluster
-      job: hostlookuper
-      role: dns-probe
-    targets:
-    - 10.96.250.78:9090
----
-apiVersion: monitoring.coreos.com/v1alpha1
-kind: ScrapeConfig
-metadata:
-  labels:
-    release: prom
   name: hostlookuper-traffic-prom-cluster
   namespace: default
 spec:
@@ -143,4 +125,21 @@ spec:
       role: auth-dns-server
     targets:
     - 172.18.2.1:8081
-
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  labels:
+    release: prom
+  name: hostlookuper-zurich-5gc
+  namespace: default
+spec:
+  metricsPath: /metrics
+  scheme: HTTP
+  staticConfigs:
+  - labels:
+      cluster: zurich-cluster
+      job: hostlookuper-zurich-5gc
+      role: 5gc-dns-probe
+    targets:
+    - 172.18.2.3:9090 #Find the IP of the LB Service in Zurich Cluster
