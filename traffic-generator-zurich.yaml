@@ -126,11 +126,11 @@ metadata:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: hostlookuper-dnsendpoint-reader
+  name: hostlookuper-dnsendpoint-rw
 rules:
 - apiGroups: ["externaldns.k8s.io"]
   resources: ["dnsendpoints"]
-  verbs: ["get", "list", "watch"]
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -142,6 +142,6 @@ subjects:
   namespace: default
 roleRef:
   kind: ClusterRole
-  name: hostlookuper-dnsendpoint-reader
+  name: hostlookuper-dnsendpoint-rw
   apiGroup: rbac.authorization.k8s.io
 

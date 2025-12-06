@@ -3,7 +3,7 @@
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-1
+  name: endpoint-1.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -15,7 +15,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-2
+  name: endpoint-2.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -27,7 +27,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-3
+  name: endpoint-3.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -39,7 +39,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-4
+  name: endpoint-4.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -51,7 +51,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-5
+  name: endpoint-5.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -63,7 +63,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-6
+  name: endpoint-6.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -75,7 +75,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-7
+  name: endpoint-7.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -87,7 +87,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-8
+  name: endpoint-8.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -99,7 +99,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-9
+  name: endpoint-9.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -111,7 +111,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-10
+  name: endpoint-10.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -123,7 +123,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-11
+  name: endpoint-11.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -135,7 +135,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-12
+  name: endpoint-12.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -147,7 +147,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-13
+  name: endpoint-13.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -159,7 +159,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-14
+  name: endpoint-14.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -171,7 +171,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-15
+  name: endpoint-15.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -183,7 +183,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-16
+  name: endpoint-16.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -195,7 +195,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-17
+  name: endpoint-17.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -207,7 +207,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-18
+  name: endpoint-18.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -219,7 +219,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-19
+  name: endpoint-19.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -231,7 +231,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-20
+  name: endpoint-20.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -243,7 +243,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-21
+  name: endpoint-21.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -255,7 +255,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-22
+  name: endpoint-22.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -267,7 +267,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-23
+  name: endpoint-23.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -279,7 +279,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-24
+  name: endpoint-24.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -291,7 +291,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-25
+  name: endpoint-25.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -303,7 +303,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-26
+  name: endpoint-26.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -315,7 +315,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-27
+  name: endpoint-27.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -327,7 +327,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-28
+  name: endpoint-28.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -339,7 +339,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-29
+  name: endpoint-29.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -351,7 +351,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-30
+  name: endpoint-30.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -363,7 +363,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-31
+  name: endpoint-31.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -375,7 +375,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-32
+  name: endpoint-32.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -387,7 +387,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-33
+  name: endpoint-33.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -399,7 +399,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-34
+  name: endpoint-34.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -411,7 +411,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-35
+  name: endpoint-35.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -423,7 +423,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-36
+  name: endpoint-36.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -435,7 +435,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-37
+  name: endpoint-37.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -447,7 +447,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-38
+  name: endpoint-38.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -459,7 +459,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-39
+  name: endpoint-39.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -471,7 +471,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-40
+  name: endpoint-40.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -483,7 +483,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-41
+  name: endpoint-41.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -495,7 +495,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-42
+  name: endpoint-42.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -507,7 +507,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-43
+  name: endpoint-43.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -519,7 +519,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-44
+  name: endpoint-44.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -531,7 +531,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-45
+  name: endpoint-45.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -543,7 +543,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-46
+  name: endpoint-46.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -555,7 +555,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-47
+  name: endpoint-47.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -567,7 +567,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-48
+  name: endpoint-48.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -579,7 +579,7 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-49
+  name: endpoint-49.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
@@ -591,610 +591,10 @@ spec:
 apiVersion: externaldns.k8s.io/v1alpha1
 kind: DNSEndpoint
 metadata:
-  name: endpoint-zurich-50
+  name: endpoint-50.zurich.5gc.3gppnetwork.org
 spec:
   endpoints:
     - targets:
         - "10.1.1.50"
       dnsName: "endpoint-50.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-51
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.51"
-      dnsName: "endpoint-51.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-52
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.52"
-      dnsName: "endpoint-52.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-53
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.53"
-      dnsName: "endpoint-53.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-54
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.54"
-      dnsName: "endpoint-54.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-55
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.55"
-      dnsName: "endpoint-55.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-56
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.56"
-      dnsName: "endpoint-56.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-57
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.57"
-      dnsName: "endpoint-57.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-58
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.58"
-      dnsName: "endpoint-58.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-59
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.59"
-      dnsName: "endpoint-59.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-60
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.60"
-      dnsName: "endpoint-60.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-61
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.61"
-      dnsName: "endpoint-61.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-62
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.62"
-      dnsName: "endpoint-62.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-63
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.63"
-      dnsName: "endpoint-63.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-64
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.64"
-      dnsName: "endpoint-64.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-65
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.65"
-      dnsName: "endpoint-65.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-66
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.66"
-      dnsName: "endpoint-66.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-67
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.67"
-      dnsName: "endpoint-67.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-68
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.68"
-      dnsName: "endpoint-68.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-69
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.69"
-      dnsName: "endpoint-69.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-70
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.70"
-      dnsName: "endpoint-70.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-71
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.71"
-      dnsName: "endpoint-71.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-72
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.72"
-      dnsName: "endpoint-72.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-73
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.73"
-      dnsName: "endpoint-73.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-74
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.74"
-      dnsName: "endpoint-74.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-75
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.75"
-      dnsName: "endpoint-75.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-76
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.76"
-      dnsName: "endpoint-76.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-77
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.77"
-      dnsName: "endpoint-77.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-78
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.78"
-      dnsName: "endpoint-78.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-79
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.79"
-      dnsName: "endpoint-79.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-80
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.80"
-      dnsName: "endpoint-80.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-81
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.81"
-      dnsName: "endpoint-81.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-82
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.82"
-      dnsName: "endpoint-82.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-83
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.83"
-      dnsName: "endpoint-83.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-84
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.84"
-      dnsName: "endpoint-84.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-85
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.85"
-      dnsName: "endpoint-85.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-86
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.86"
-      dnsName: "endpoint-86.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-87
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.87"
-      dnsName: "endpoint-87.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-88
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.88"
-      dnsName: "endpoint-88.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-89
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.89"
-      dnsName: "endpoint-89.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-90
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.90"
-      dnsName: "endpoint-90.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-91
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.91"
-      dnsName: "endpoint-91.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-92
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.92"
-      dnsName: "endpoint-92.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-93
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.93"
-      dnsName: "endpoint-93.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-94
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.94"
-      dnsName: "endpoint-94.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-95
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.95"
-      dnsName: "endpoint-95.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-96
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.96"
-      dnsName: "endpoint-96.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-97
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.97"
-      dnsName: "endpoint-97.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-98
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.98"
-      dnsName: "endpoint-98.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-99
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.99"
-      dnsName: "endpoint-99.zurich.5gc.3gppnetwork.org"
-      recordType: "A"
----
-# Source: externaldns-endpoints/templates/endpoint.yaml
-apiVersion: externaldns.k8s.io/v1alpha1
-kind: DNSEndpoint
-metadata:
-  name: endpoint-zurich-100
-spec:
-  endpoints:
-    - targets:
-        - "10.1.1.100"
-      dnsName: "endpoint-100.zurich.5gc.3gppnetwork.org"
       recordType: "A"
