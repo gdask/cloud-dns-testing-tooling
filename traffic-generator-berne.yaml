@@ -1,0 +1,147 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hostlookuper-berne-5gc
+spec:
+  selector:
+    matchLabels:
+      app: hostlookuper-berne-5gc
+  template:
+    metadata:
+      labels:
+        app: hostlookuper-berne-5gc
+    spec:
+      serviceAccountName: hostlookuper-sa
+      containers:
+      - name: hostlookuper-berne-5gc
+        image: hostlookuper:local
+        imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
+        env:
+          - name: HOSTLOOKUPER_INTERVAL
+            value: 1s
+          - name: HOSTLOOKUPER_DNS_SERVERS
+            # Cluster DNS
+            value: "udp://10.96.0.10:53"
+          - name: HOSTLOOKUPER_DOMAIN_PROBES
+            value: "/var/domain-probes.txt"
+        ports:
+        - containerPort: 9090
+        volumeMounts:
+        - name: domain-probes-volume
+          mountPath: /var/domain-probes.txt
+          subPath: domain-probes.txt
+          readOnly: true
+      volumes:
+      - name: domain-probes-volume
+        configMap:
+          name: domain-probes
+          items:
+          - key: domain-probes.txt
+            path: domain-probes.txt
+--- #Change service to LB
+apiVersion: v1
+kind: Service
+metadata:
+  name: hostlookuper-berne-5gc-metrics
+  annotations:
+    prometheus.io/port: "9090"
+    prometheus.io/scrape: "true"
+spec:
+  type: LoadBalancer
+  selector:
+    app: hostlookuper-berne-5gc
+  ports:
+  - port: 9090
+    targetPort: 9090
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: domain-probes
+data:
+  domain-probes.txt: |
+    endpoint-1.berne.5gc.3gppnetwork.org
+    endpoint-2.berne.5gc.3gppnetwork.org
+    endpoint-3.berne.5gc.3gppnetwork.org
+    endpoint-4.berne.5gc.3gppnetwork.org
+    endpoint-5.berne.5gc.3gppnetwork.org
+    endpoint-6.berne.5gc.3gppnetwork.org
+    endpoint-7.berne.5gc.3gppnetwork.org
+    endpoint-8.berne.5gc.3gppnetwork.org
+    endpoint-9.berne.5gc.3gppnetwork.org
+    endpoint-10.berne.5gc.3gppnetwork.org
+    endpoint-11.berne.5gc.3gppnetwork.org
+    endpoint-12.berne.5gc.3gppnetwork.org
+    endpoint-13.berne.5gc.3gppnetwork.org
+    endpoint-14.berne.5gc.3gppnetwork.org
+    endpoint-15.berne.5gc.3gppnetwork.org
+    endpoint-16.berne.5gc.3gppnetwork.org
+    endpoint-17.berne.5gc.3gppnetwork.org
+    endpoint-18.berne.5gc.3gppnetwork.org
+    endpoint-19.berne.5gc.3gppnetwork.org
+    endpoint-20.berne.5gc.3gppnetwork.org
+    endpoint-21.berne.5gc.3gppnetwork.org
+    endpoint-22.berne.5gc.3gppnetwork.org
+    endpoint-23.berne.5gc.3gppnetwork.org
+    endpoint-24.berne.5gc.3gppnetwork.org
+    endpoint-25.berne.5gc.3gppnetwork.org
+    endpoint-26.berne.5gc.3gppnetwork.org
+    endpoint-27.berne.5gc.3gppnetwork.org
+    endpoint-28.berne.5gc.3gppnetwork.org
+    endpoint-29.berne.5gc.3gppnetwork.org
+    endpoint-30.berne.5gc.3gppnetwork.org
+    endpoint-31.berne.5gc.3gppnetwork.org
+    endpoint-32.berne.5gc.3gppnetwork.org
+    endpoint-33.berne.5gc.3gppnetwork.org
+    endpoint-34.berne.5gc.3gppnetwork.org
+    endpoint-35.berne.5gc.3gppnetwork.org
+    endpoint-36.berne.5gc.3gppnetwork.org
+    endpoint-37.berne.5gc.3gppnetwork.org
+    endpoint-38.berne.5gc.3gppnetwork.org
+    endpoint-39.berne.5gc.3gppnetwork.org
+    endpoint-40.berne.5gc.3gppnetwork.org
+    endpoint-41.berne.5gc.3gppnetwork.org
+    endpoint-42.berne.5gc.3gppnetwork.org
+    endpoint-43.berne.5gc.3gppnetwork.org
+    endpoint-44.berne.5gc.3gppnetwork.org
+    endpoint-45.berne.5gc.3gppnetwork.org
+    endpoint-46.berne.5gc.3gppnetwork.org
+    endpoint-47.berne.5gc.3gppnetwork.org
+    endpoint-48.berne.5gc.3gppnetwork.org
+    endpoint-49.berne.5gc.3gppnetwork.org
+    endpoint-50.berne.5gc.3gppnetwork.org
+    non-existent-domain.berne.5gc.3gppnetwork.org
+---
+#RBAC to allow Hostlookuper to read DNSEndpoint resources
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: hostlookuper-sa
+  namespace: default
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: hostlookuper-dnsendpoint-rw
+rules:
+- apiGroups: ["externaldns.k8s.io"]
+  resources: ["dnsendpoints"]
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: hostlookuper-dnsendpoint-binding
+subjects:
+- kind: ServiceAccount
+  name: hostlookuper-sa
+  namespace: default
+roleRef:
+  kind: ClusterRole
+  name: hostlookuper-dnsendpoint-rw
+  apiGroup: rbac.authorization.k8s.io
+

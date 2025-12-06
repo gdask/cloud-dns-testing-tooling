@@ -1,0 +1,600 @@
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-1.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.1"
+      dnsName: "endpoint-1.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-2.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.2"
+      dnsName: "endpoint-2.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-3.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.3"
+      dnsName: "endpoint-3.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-4.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.4"
+      dnsName: "endpoint-4.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-5.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.5"
+      dnsName: "endpoint-5.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-6.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.6"
+      dnsName: "endpoint-6.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-7.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.7"
+      dnsName: "endpoint-7.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-8.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.8"
+      dnsName: "endpoint-8.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-9.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.9"
+      dnsName: "endpoint-9.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-10.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.10"
+      dnsName: "endpoint-10.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-11.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.11"
+      dnsName: "endpoint-11.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-12.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.12"
+      dnsName: "endpoint-12.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-13.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.13"
+      dnsName: "endpoint-13.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-14.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.14"
+      dnsName: "endpoint-14.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-15.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.15"
+      dnsName: "endpoint-15.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-16.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.16"
+      dnsName: "endpoint-16.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-17.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.17"
+      dnsName: "endpoint-17.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-18.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.18"
+      dnsName: "endpoint-18.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-19.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.19"
+      dnsName: "endpoint-19.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-20.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.20"
+      dnsName: "endpoint-20.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-21.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.21"
+      dnsName: "endpoint-21.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-22.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.22"
+      dnsName: "endpoint-22.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-23.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.23"
+      dnsName: "endpoint-23.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-24.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.24"
+      dnsName: "endpoint-24.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-25.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.25"
+      dnsName: "endpoint-25.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-26.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.26"
+      dnsName: "endpoint-26.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-27.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.27"
+      dnsName: "endpoint-27.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-28.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.28"
+      dnsName: "endpoint-28.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-29.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.29"
+      dnsName: "endpoint-29.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-30.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.30"
+      dnsName: "endpoint-30.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-31.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.31"
+      dnsName: "endpoint-31.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-32.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.32"
+      dnsName: "endpoint-32.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-33.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.33"
+      dnsName: "endpoint-33.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-34.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.34"
+      dnsName: "endpoint-34.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-35.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.35"
+      dnsName: "endpoint-35.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-36.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.36"
+      dnsName: "endpoint-36.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-37.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.37"
+      dnsName: "endpoint-37.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-38.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.38"
+      dnsName: "endpoint-38.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-39.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.39"
+      dnsName: "endpoint-39.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-40.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.40"
+      dnsName: "endpoint-40.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-41.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.41"
+      dnsName: "endpoint-41.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-42.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.42"
+      dnsName: "endpoint-42.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-43.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.43"
+      dnsName: "endpoint-43.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-44.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.44"
+      dnsName: "endpoint-44.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-45.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.45"
+      dnsName: "endpoint-45.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-46.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.46"
+      dnsName: "endpoint-46.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-47.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.47"
+      dnsName: "endpoint-47.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-48.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.48"
+      dnsName: "endpoint-48.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-49.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.49"
+      dnsName: "endpoint-49.berne.5gc.3gppnetwork.org"
+      recordType: "A"
+---
+# Source: externaldns-endpoints/templates/endpoint.yaml
+apiVersion: externaldns.k8s.io/v1alpha1
+kind: DNSEndpoint
+metadata:
+  name: endpoint-50.berne.5gc.3gppnetwork.org
+spec:
+  endpoints:
+    - targets:
+        - "11.1.1.50"
+      dnsName: "endpoint-50.berne.5gc.3gppnetwork.org"
+      recordType: "A"

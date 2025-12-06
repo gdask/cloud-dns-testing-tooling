@@ -1,0 +1,4 @@
+clusterName: berne
+baseIpPrefix: "11.1.1"              # will become 10.10.X
+dnsSuffix: "berne.5gc.3gppnetwork.org"       # endpoint-X.cluster.5gc.3gppnetwork.org
+count: 50                         # how many endpoints to generate

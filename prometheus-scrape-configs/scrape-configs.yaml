@@ -143,3 +143,21 @@ spec:
       role: 5gc-dns-probe
     targets:
     - 172.18.2.3:9090 #Find the IP of the LB Service in Zurich Cluster
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  labels:
+    release: prom
+  name: hostlookuper-berne-5gc
+  namespace: default
+spec:
+  metricsPath: /metrics
+  scheme: HTTP
+  staticConfigs:
+  - labels:
+      cluster: berne-cluster
+      job: hostlookuper-berne-5gc
+      role: 5gc-dns-probe
+    targets:
+    - 172.18.1.3:9090 #Find the IP of the LB Service in Berne Cluster
