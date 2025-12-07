@@ -30,4 +30,8 @@ data:
             policy sequential
         }
         forward . 1.1.1.1
+        cache 30 {
+            success 9984 5  # Default size (9984) cache of successful responses for a TTL of 5 seconds
+            denial 9984 5   # Default size (9984) cache of NXDOMAIN and NODATA responses for a TTL of 5 seconds
+        }
     }
