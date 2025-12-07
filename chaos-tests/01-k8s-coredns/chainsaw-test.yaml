@@ -1,0 +1,52 @@
+---
+apiVersion: chainsaw.kyverno.io/v1alpha1
+kind: Test
+metadata:
+  name: k8s-coredns-chaos-test
+spec:
+  concurrent: false
+  timeouts:
+    assert: 150s # Increased from default 60s to allow for chaos injection delays
+  steps:
+    - name: Post Test Start
+      description: Wait for connection point CR to be deleted if it exists
+      try:
+        - script:
+            content: |
+              ../utils/grafana-start.sh k8s-coredns-chaos-test
+    - name: Inject Chaos
+      description: Apply connection point CR
+      try:
+        - apply:
+            resource:
+              apiVersion: chaos.datadoghq.com/v1beta1
+              kind: Disruption
+              metadata:
+                name: delete-k8s-coredns-pod
+                namespace: kube-system
+              spec:
+                selector:
+                  k8s-app: kube-dns
+                count: 1
+                duration: 2m
+                containerFailure:
+                  forced: false # send a SIGTERM signal to all of the pod's containers
+        - assert:
+            resource:
+              apiVersion: chaos.datadoghq.com/v1beta1
+              kind: Disruption
+              metadata:
+                name: delete-k8s-coredns-pod
+                namespace: kube-system
+              status:
+                #injectedTargetsCount: 1 # Drops to zero at the end of the chaos period
+                selectedTargetsCount: 1
+                ignoredTargetsCount: 1 # Zero in the other TCs
+                injectionStatus: PreviouslyInjected
+    - name: Post Test Stop
+      description: Wait for connection point CR to be deleted if it exists
+      try:
+        - script:
+            content: |
+              ../utils/grafana-stop.sh k8s-coredns-chaos-test
+---

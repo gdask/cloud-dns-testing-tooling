@@ -23,3 +23,12 @@ Under `cache-settings` you can find different caching profiles
   Change the setting of the caching by using the utility `./apply-settings.sh`
   - Apply no-caching in Bern: `./apply-settings.sh no-caching berne`
   - Apply caching in Zurich: `./apply-settings.sh caching zurich`
+
+  ## Run Tests
+
+  Make sure that chainsaw is installed in the jumphost.
+  If not, you can install it with `go install github.com/kyverno/chainsaw@latest`, or with any of the alternative ways described [here](https://kyverno.github.io/chainsaw/0.2.3/quick-start/install/).
+  If you install it via go, you can execute it with `$HOME/go/bin/chainsaw`, or add the go path in your shell path.
+
+  ex. execute K8s DNS test case with:
+  `$HOME/go/bin/chainsaw test chaos-tests/01-k8s-coredns/`
