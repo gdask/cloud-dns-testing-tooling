@@ -1,0 +1,51 @@
+---
+apiVersion: chainsaw.kyverno.io/v1alpha1
+kind: Test
+metadata:
+  name: test-record-provisioning-same-cluster-chaos
+spec:
+  concurrent: false
+  timeouts:
+    assert: 150s # Increased from default 60s to allow for chaos injection delays
+    cleanup: 60s
+  steps:
+    - name: Post Test Start
+      description: Annotate test start
+      try:
+        - script:
+            content: |
+              ../utils/annotate-grafana.sh test-provisioning-same-cluster-start
+    - name: Inject Chaos
+      description: Inject Chaos and assert destruction
+      try:
+        - apply:
+            resource:
+              apiVersion: chaos.datadoghq.com/v1beta1
+              kind: Disruption
+              metadata:
+                name: delete-external-dns-same-cluster-pod
+                namespace: dns
+              spec:
+                selector:
+                  app.kubernetes.io/instance: external-dns-zurich
+                count: 1
+                duration: 2m
+                containerFailure:
+                  forced: false # send a SIGTERM signal to all of the pod's containers
+        - assert:
+            resource:
+              apiVersion: chaos.datadoghq.com/v1beta1
+              kind: Disruption
+              metadata:
+                name: delete-external-dns-same-cluster-pod
+                namespace: dns
+              status:
+                selectedTargetsCount: 1
+                ignoredTargetsCount: 0
+                injectionStatus: PreviouslyInjected
+    - name: Post Test Stop
+      description: Annotate test finish
+      try:
+        - script:
+            content: |
+              ../utils/annotate-grafana.sh test-provisioning-same-cluster-stop
