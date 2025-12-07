@@ -32,3 +32,8 @@ Under `cache-settings` you can find different caching profiles
 
   ex. execute K8s DNS test case with:
   `$HOME/go/bin/chainsaw test chaos-tests/01-k8s-coredns/`
+
+  ### Important Note
+  Test cases emit events towards grafana.
+  Grafana should be accessible in localhost:3000 on the jumphost.
+  That can be achieved via port-forwarding.

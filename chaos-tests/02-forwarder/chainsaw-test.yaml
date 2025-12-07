@@ -2,7 +2,7 @@
 apiVersion: chainsaw.kyverno.io/v1alpha1
 kind: Test
 metadata:
-  name: k8s-coredns-chaos-test
+  name: test-forwarder-chaos
 spec:
   concurrent: false
   timeouts:
@@ -10,11 +10,11 @@ spec:
     cleanup: 60s
   steps:
     - name: Post Test Start
-      description: Annotate test start
+      description: Annotate chaos test start
       try:
         - script:
             content: |
-              ../utils/annotate-grafana.sh test-k8s-dns-start
+              ../utils/annotate-grafana.sh test-forwarder-start
     - name: Inject Chaos
       description: Inject Chaos and assert destruction
       try:
@@ -23,11 +23,12 @@ spec:
               apiVersion: chaos.datadoghq.com/v1beta1
               kind: Disruption
               metadata:
-                name: delete-k8s-coredns-pod
-                namespace: kube-system
+                name: delete-forwarder-pod
+                namespace: dns
               spec:
                 selector:
-                  k8s-app: kube-dns
+                  k8s-app: coredns
+                  app.kubernetes.io/instance: forwarder
                 count: 1
                 duration: 2m
                 containerFailure:
@@ -37,16 +38,16 @@ spec:
               apiVersion: chaos.datadoghq.com/v1beta1
               kind: Disruption
               metadata:
-                name: delete-k8s-coredns-pod
-                namespace: kube-system
+                name: delete-forwarder-pod
+                namespace: dns
               status:
                 #injectedTargetsCount: 1 # Drops to zero at the end of the chaos period
                 selectedTargetsCount: 1
-                ignoredTargetsCount: 1 # Zero in the other TCs
+                ignoredTargetsCount: 0
                 injectionStatus: PreviouslyInjected
     - name: Post Test Stop
-      description: Annotate test end
+      description: Annotate Chaos test end
       try:
         - script:
             content: |
-              ../utils/annotate-grafana.sh test-k8s-dns-end
+              ../utils/annotate-grafana.sh test-forwarder-end
