@@ -132,7 +132,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "editorMode": "code",
@@ -195,7 +195,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "editorMode": "builder",
@@ -294,7 +294,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "editorMode": "builder",
@@ -358,7 +358,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "editorMode": "builder",
@@ -421,7 +421,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "editorMode": "builder",
@@ -481,7 +481,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "editorMode": "builder",
@@ -525,7 +525,7 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 6,
+        "w": 3,
         "x": 0,
         "y": 8
       },
@@ -547,7 +547,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "editorMode": "builder",
@@ -625,7 +625,7 @@
       "gridPos": {
         "h": 8,
         "w": 11,
-        "x": 6,
+        "x": 3,
         "y": 8
       },
       "id": 16,
@@ -642,7 +642,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "editorMode": "builder",
@@ -652,7 +652,7 @@
           "refId": "A"
         }
       ],
-      "title": "AC - Accuracy - TimeSeries",
+      "title": "Accuracy of Resolutions per Cluster",
       "type": "timeseries"
     },
     {
@@ -718,8 +718,8 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 7,
-        "x": 17,
+        "w": 10,
+        "x": 14,
         "y": 8
       },
       "id": 33,
@@ -736,7 +736,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "adhocFilters": [],
@@ -786,7 +786,7 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 6,
+        "w": 3,
         "x": 0,
         "y": 16
       },
@@ -808,7 +808,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "adhocFilters": [],
@@ -892,7 +892,7 @@
       "gridPos": {
         "h": 8,
         "w": 11,
-        "x": 6,
+        "x": 3,
         "y": 16
       },
       "id": 13,
@@ -909,7 +909,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "adhocFilters": [],
@@ -926,7 +926,108 @@
           "refId": "Avg Latency"
         }
       ],
-      "title": "AC - Average Probe Latency ",
+      "title": "Average Probe Latency Per Cluster",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 10,
+        "x": 14,
+        "y": 16
+      },
+      "id": 34,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.0",
+      "targets": [
+        {
+          "adhocFilters": [],
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "stddev_over_time(\n  (\n    sum by (cluster) (\n      rate(hostlookuper_dns_lookup_duration_seconds_sum[$__rate_interval])\n    )\n    /\n    sum by (cluster) (\n      rate(hostlookuper_dns_lookup_duration_seconds_count[$__rate_interval])\n    )\n  )[1m:]\n)",
+          "fromExploreMetrics": true,
+          "interval": "",
+          "legendFormat": "Jitter {{cluster}}",
+          "range": true,
+          "refId": "Avg Latency"
+        }
+      ],
+      "title": "Probe Jitter ",
       "type": "timeseries"
     },
     {
@@ -1010,7 +1111,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "adhocFilters": [],
@@ -1133,7 +1234,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "adhocFilters": [],
@@ -1262,7 +1363,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "adhocFilters": [],
@@ -1391,7 +1492,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "adhocFilters": [],
@@ -1505,7 +1606,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "adhocFilters": [],
@@ -1619,7 +1720,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "adhocFilters": [],
@@ -1684,7 +1785,7 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 7,
+        "w": 3,
         "x": 0,
         "y": 40
       },
@@ -1706,7 +1807,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "datasource": {
@@ -1789,8 +1890,8 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 9,
-        "x": 7,
+        "w": 7,
+        "x": 3,
         "y": 40
       },
       "id": 1,
@@ -1807,7 +1908,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "datasource": {
@@ -1887,8 +1988,8 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 8,
-        "x": 16,
+        "w": 7,
+        "x": 10,
         "y": 40
       },
       "id": 25,
@@ -1905,7 +2006,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "adhocFilters": [],
@@ -1923,6 +2024,107 @@
         }
       ],
       "title": "AC - K8s DNS Latency Average",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 7,
+        "x": 17,
+        "y": 40
+      },
+      "id": 35,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.0",
+      "targets": [
+        {
+          "adhocFilters": [],
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "stddev_over_time(\n  (\n    sum by (cluster) (\n      rate(coredns_dns_request_duration_seconds_sum{job=\"kube-dns\"}[$__rate_interval])\n    )\n    /\n    sum by (cluster) (\n      rate(coredns_dns_request_duration_seconds_count{job=\"kube-dns\"}[$__rate_interval])\n    )\n  )[1m:]\n)",
+          "fromExploreMetrics": true,
+          "interval": "",
+          "legendFormat": "Jitter {{cluster}}",
+          "range": true,
+          "refId": "Avg Latency"
+        }
+      ],
+      "title": "K8s DNS Jitter",
       "type": "timeseries"
     },
     {
@@ -1957,7 +2159,7 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 7,
+        "w": 3,
         "x": 0,
         "y": 48
       },
@@ -1979,7 +2181,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "datasource": {
@@ -2062,8 +2264,8 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 9,
-        "x": 7,
+        "w": 7,
+        "x": 3,
         "y": 48
       },
       "id": 3,
@@ -2080,7 +2282,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "datasource": {
@@ -2160,8 +2362,8 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 8,
-        "x": 16,
+        "w": 7,
+        "x": 10,
         "y": 48
       },
       "id": 26,
@@ -2178,7 +2380,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "adhocFilters": [],
@@ -2196,6 +2398,107 @@
         }
       ],
       "title": "AC - Forwarder DNS Latency Average",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 7,
+        "x": 17,
+        "y": 48
+      },
+      "id": 36,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.0",
+      "targets": [
+        {
+          "adhocFilters": [],
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "stddev_over_time(\n  (\n    sum by (cluster) (\n      rate(coredns_dns_request_duration_seconds_sum{job=\"forwarder\"}[$__rate_interval])\n    )\n    /\n    sum by (cluster) (\n      rate(coredns_dns_request_duration_seconds_count{job=\"forwarder\"}[$__rate_interval])\n    )\n  )[1m:]\n)",
+          "fromExploreMetrics": true,
+          "interval": "",
+          "legendFormat": "Jitter {{cluster}}",
+          "range": true,
+          "refId": "Avg Latency"
+        }
+      ],
+      "title": "Forwarder DNS Jitter",
       "type": "timeseries"
     },
     {
@@ -2230,7 +2533,7 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 7,
+        "w": 3,
         "x": 0,
         "y": 56
       },
@@ -2252,7 +2555,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "editorMode": "builder",
@@ -2333,8 +2636,8 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 9,
-        "x": 7,
+        "w": 7,
+        "x": 3,
         "y": 56
       },
       "id": 21,
@@ -2351,7 +2654,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "editorMode": "builder",
@@ -2427,8 +2730,8 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 8,
-        "x": 16,
+        "w": 7,
+        "x": 10,
         "y": 56
       },
       "id": 27,
@@ -2445,7 +2748,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "adhocFilters": [],
@@ -2463,6 +2766,107 @@
         }
       ],
       "title": "AC - Auth DNS Latency Avergage ms",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "prometheus"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 7,
+        "x": 17,
+        "y": 56
+      },
+      "id": 37,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.0",
+      "targets": [
+        {
+          "adhocFilters": [],
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "stddev_over_time(\n  (\n    sum by (cluster) (\n      rate(pdns_auth_backend_latency[$__rate_interval])\n    )\n  )[1m:]\n)",
+          "fromExploreMetrics": true,
+          "interval": "",
+          "legendFormat": "Jitter {{cluster}}",
+          "range": true,
+          "refId": "Avg Latency"
+        }
+      ],
+      "title": "Authoritative DNS Jitter",
       "type": "timeseries"
     },
     {
@@ -2547,7 +2951,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "editorMode": "builder",
@@ -2642,7 +3046,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "12.2.0",
+      "pluginVersion": "12.3.0",
       "targets": [
         {
           "editorMode": "builder",
@@ -2671,5 +3075,5 @@
   "timezone": "browser",
   "title": "Setup Dashboard",
   "uid": "adjtfmqy",
-  "version": 108
+  "version": 8
 }

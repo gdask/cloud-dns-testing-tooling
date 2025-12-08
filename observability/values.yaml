@@ -1,0 +1,3 @@
+grafana:
+  imageRenderer:
+    enabled: true
