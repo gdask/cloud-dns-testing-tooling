@@ -51,3 +51,22 @@ spec:
         - script:
             content: |
               ../utils/annotate-grafana.sh test-forwarder-end
+    - name: Validate Revival
+      try:
+        - assert:
+            resource:
+              apiVersion: apps/v1
+              kind: Deployment
+              metadata:
+                name: forwarder-coredns
+                namespace: dns
+              status:
+                availableReplicas: 1
+                (conditions[?type == 'Available']):
+                - status: "True"
+    - name: Annotate System Restored
+      description: Annotate system restored state
+      try:
+        - script:
+            content: |
+              ../utils/annotate-grafana.sh test-forwarder-system-restored

@@ -50,3 +50,22 @@ spec:
         - script:
             content: |
               ../utils/annotate-grafana.sh test-k8s-dns-end
+    - name: Validate Revival
+      try:
+        - assert:
+            resource:
+              apiVersion: apps/v1
+              kind: Deployment
+              metadata:
+                name: coredns
+                namespace: kube-system
+              status:
+                availableReplicas: 2
+                (conditions[?type == 'Available']):
+                - status: "True"
+    - name: Annotate System Restored
+      description: Annotate system restored state
+      try:
+        - script:
+            content: |
+              ../utils/annotate-grafana.sh test-k8s-dns-system-restored

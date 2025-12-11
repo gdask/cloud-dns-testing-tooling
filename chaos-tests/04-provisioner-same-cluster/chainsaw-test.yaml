@@ -49,3 +49,22 @@ spec:
         - script:
             content: |
               ../utils/annotate-grafana.sh test-provisioning-same-cluster-stop
+    - name: Validate Revival
+      try:
+        - assert:
+            resource:
+              apiVersion: apps/v1
+              kind: Deployment
+              metadata:
+                name: external-dns-zurich
+                namespace: dns
+              status:
+                availableReplicas: 1
+                (conditions[?type == 'Available']):
+                - status: "True"
+    - name: Annotate System Restored
+      description: Annotate system restored state
+      try:
+        - script:
+            content: |
+              ../utils/annotate-grafana.sh test-provisioner-same-cluster-system-restored

@@ -31,7 +31,7 @@ Under `cache-settings` you can find different caching profiles
   If you install it via go, you can execute it with `$HOME/go/bin/chainsaw`, or add the go path in your shell path.
 
   ex. execute K8s DNS test case with:
-  `$HOME/go/bin/chainsaw test chaos-tests/01-k8s-coredns/`
+  `chainsaw test chaos-tests/01-k8s-coredns/ --skip-delete`
 
   ### Important Note
   Test cases emit events towards grafana.
