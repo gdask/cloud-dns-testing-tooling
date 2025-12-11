@@ -1,0 +1,61 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: coredns-pod-1
+  namespace: kube-system
+spec:
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 9153
+      targetPort: 9153
+      name: metrics
+---
+apiVersion: discovery.k8s.io/v1
+kind: EndpointSlice
+metadata:
+  name: coredns-pod-1
+  namespace: kube-system
+  labels:
+    kubernetes.io/service-name: coredns-pod-1
+addressType: IPv4
+ports:
+  - name: metrics
+    port: 9153
+    protocol: TCP
+endpoints:
+  - addresses:
+      - 10.244.0.66
+    conditions:
+      ready: true
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: coredns-pod-2
+  namespace: kube-system
+spec:
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 9153
+      targetPort: 9153
+      name: metrics
+---
+apiVersion: discovery.k8s.io/v1
+kind: EndpointSlice
+metadata:
+  name: coredns-pod-2
+  namespace: kube-system
+  labels:
+    kubernetes.io/service-name: coredns-pod-2
+addressType: IPv4
+ports:
+  - name: metrics
+    port: 9153
+    protocol: TCP
+endpoints:
+  - addresses:
+      - 10.244.0.67
+    conditions:
+      ready: true

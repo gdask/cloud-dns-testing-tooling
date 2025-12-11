@@ -59,7 +59,7 @@ kind: ScrapeConfig
 metadata:
   labels:
     release: prom
-  name: kube-dns-berne
+  name: kube-dns-berne-1
   namespace: default
 spec:
   metricsPath: /metrics
@@ -70,14 +70,32 @@ spec:
       job: kube-dns
       role: kubedns
     targets:
-    - 172.18.1.2:9153
+    - 172.18.1.4:9153
 ---
 apiVersion: monitoring.coreos.com/v1alpha1
 kind: ScrapeConfig
 metadata:
   labels:
     release: prom
-  name: kube-dns-zurich
+  name: kube-dns-berne-2
+  namespace: default
+spec:
+  metricsPath: /metrics
+  scheme: HTTP
+  staticConfigs:
+  - labels:
+      cluster: berne
+      job: kube-dns
+      role: kubedns
+    targets:
+    - 172.18.1.5:9153
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  labels:
+    release: prom
+  name: kube-dns-zurich-1
   namespace: default
 spec:
   metricsPath: /metrics
@@ -88,7 +106,25 @@ spec:
       job: kube-dns
       role: kubedns
     targets:
-    - 172.18.2.2:9153
+    - 172.18.2.4:9153
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  labels:
+    release: prom
+  name: kube-dns-zurich-2
+  namespace: default
+spec:
+  metricsPath: /metrics
+  scheme: HTTP
+  staticConfigs:
+  - labels:
+      cluster: zurich
+      job: kube-dns
+      role: kubedns
+    targets:
+    - 172.18.2.5:9153
 ---
 apiVersion: monitoring.coreos.com/v1alpha1
 kind: ScrapeConfig

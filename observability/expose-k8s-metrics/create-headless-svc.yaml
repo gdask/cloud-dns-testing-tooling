@@ -1,0 +1,2 @@
+kubectl --context kind-berne apply -f berne-k8s-coredns-metrics.yaml
+kubectl --context kind-zurich apply -f zurich-k8s-coredns-metrics.yaml
