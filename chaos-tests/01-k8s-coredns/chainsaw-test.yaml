@@ -31,7 +31,7 @@ spec:
                 count: 1
                 duration: 2m
                 containerFailure:
-                  forced: false # send a SIGTERM signal to all of the pod's containers
+                  forced: true # send a SIGTERM signal to all of the pod's containers
         - assert:
             resource:
               apiVersion: chaos.datadoghq.com/v1beta1
