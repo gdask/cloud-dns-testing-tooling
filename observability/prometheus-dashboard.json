@@ -45,7 +45,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 29,
+  "id": 0,
   "links": [],
   "panels": [
     {
@@ -223,10 +223,12 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
+            "axisSoftMax": 75,
+            "axisSoftMin": 0,
             "barAlignment": 0,
             "barWidthFactor": 0.6,
             "drawStyle": "line",
-            "fillOpacity": 27,
+            "fillOpacity": 15,
             "gradientMode": "hue",
             "hideFrom": {
               "legend": false,
@@ -255,18 +257,12 @@
             }
           },
           "mappings": [],
-          "max": 60,
-          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
                 "value": 0
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
@@ -283,8 +279,12 @@
       "id": 22,
       "options": {
         "legend": {
-          "calcs": [],
-          "displayMode": "list",
+          "calcs": [
+            "mean",
+            "min",
+            "max"
+          ],
+          "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
         },
@@ -304,7 +304,7 @@
           "refId": "A"
         }
       ],
-      "title": "DNS Lookups per cluster",
+      "title": "Client DNS Traffic",
       "type": "timeseries"
     },
     {
@@ -325,10 +325,6 @@
               {
                 "color": "green",
                 "value": 0
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           },
@@ -370,6 +366,117 @@
       ],
       "title": "Bern - DNS Lookups",
       "type": "gauge"
+    },
+    {
+      "datasource": {
+        "uid": "prometheus"
+      },
+      "description": "Number of errors in lookups\n**Type:** *counter*\n\n",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 9,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "cps"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "sum(rate)"
+            },
+            "properties": []
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time"
+            },
+            "properties": []
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 5,
+        "x": 19,
+        "y": 0
+      },
+      "id": 38,
+      "maxDataPoints": 500,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "max"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.3.0",
+      "targets": [
+        {
+          "editorMode": "code",
+          "expr": "sum(rate(hostlookuper_dns_lookups_total{__ignore_usage__=\"\", rcode=\"n/a-error\"}[$__rate_interval]))",
+          "fromExploreMetrics": false,
+          "legendFormat": "sum(rate)",
+          "range": true,
+          "refId": "hostlookuper_dns_lookups_total-sum(rate)"
+        }
+      ],
+      "title": "Lookup Errors",
+      "type": "timeseries"
     },
     {
       "datasource": {
@@ -618,7 +725,8 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "percentunit"
         },
         "overrides": []
       },
@@ -631,7 +739,9 @@
       "id": 16,
       "options": {
         "legend": {
-          "calcs": [],
+          "calcs": [
+            "mean"
+          ],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": true
@@ -712,7 +822,8 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "percent"
         },
         "overrides": []
       },
@@ -785,7 +896,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
+        "h": 9,
         "w": 3,
         "x": 0,
         "y": 16
@@ -816,8 +927,8 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "editorMode": "code",
-          "expr": "sum by (cluster) (\n  rate(hostlookuper_dns_lookup_duration_seconds_sum[1m])\n)\n/\nsum by (cluster) (\n  rate(hostlookuper_dns_lookup_duration_seconds_count[1m])\n)",
+          "editorMode": "builder",
+          "expr": "(sum by(cluster) (rate(hostlookuper_dns_lookup_duration_seconds_sum[1m])) * 1000) / (sum by(cluster) (rate(hostlookuper_dns_lookup_duration_seconds_count[1m])))",
           "fromExploreMetrics": true,
           "interval": "",
           "legendFormat": "Avg Latency {{cluster}}",
@@ -825,7 +936,7 @@
           "refId": "Avg Latency"
         }
       ],
-      "title": "AC - Probe Latency Percentiles",
+      "title": "AC - Probe Latency (ms)",
       "type": "stat"
     },
     {
@@ -885,12 +996,13 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "ms"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
+        "h": 9,
         "w": 11,
         "x": 3,
         "y": 16
@@ -898,8 +1010,11 @@
       "id": 13,
       "options": {
         "legend": {
-          "calcs": [],
-          "displayMode": "list",
+          "calcs": [
+            "mean",
+            "stdDev"
+          ],
+          "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
         },
@@ -917,16 +1032,16 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "editorMode": "code",
-          "expr": "sum by (cluster) (\n  rate(hostlookuper_dns_lookup_duration_seconds_sum[$__rate_interval])\n)\n/\nsum by (cluster) (\n  rate(hostlookuper_dns_lookup_duration_seconds_count[$__rate_interval])\n)",
+          "editorMode": "builder",
+          "expr": "(sum by(cluster) (rate(hostlookuper_dns_lookup_duration_seconds_sum[$__rate_interval])) * 1000) / (sum by(cluster) (rate(hostlookuper_dns_lookup_duration_seconds_count[$__rate_interval])))",
           "fromExploreMetrics": true,
           "interval": "",
-          "legendFormat": "Avg Latency {{cluster}}",
+          "legendFormat": "Latency {{cluster}}",
           "range": true,
           "refId": "Avg Latency"
         }
       ],
-      "title": "Average Probe Latency Per Cluster",
+      "title": "Client Average Latency",
       "type": "timeseries"
     },
     {
@@ -986,12 +1101,13 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "ms"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
+        "h": 9,
         "w": 10,
         "x": 14,
         "y": 16
@@ -999,8 +1115,11 @@
       "id": 34,
       "options": {
         "legend": {
-          "calcs": [],
-          "displayMode": "list",
+          "calcs": [
+            "min",
+            "max"
+          ],
+          "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
         },
@@ -1019,7 +1138,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "stddev_over_time(\n  (\n    sum by (cluster) (\n      rate(hostlookuper_dns_lookup_duration_seconds_sum[$__rate_interval])\n    )\n    /\n    sum by (cluster) (\n      rate(hostlookuper_dns_lookup_duration_seconds_count[$__rate_interval])\n    )\n  )[2m:]\n)",
+          "expr": "stddev_over_time(\n  (\n    sum by (cluster) (\n      rate(hostlookuper_dns_lookup_duration_seconds_sum[$__rate_interval])\n    )\n    /\n    sum by (cluster) (\n      rate(hostlookuper_dns_lookup_duration_seconds_count[$__rate_interval])\n    )\n  )[$observation_window:]\n) *1000",
           "fromExploreMetrics": true,
           "interval": "",
           "legendFormat": "Jitter {{cluster}}",
@@ -1095,7 +1214,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 24
+        "y": 25
       },
       "id": 10,
       "options": {
@@ -1119,10 +1238,12 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "histogram_quantile(0.99,sum by (le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{ }[$__rate_interval])))",
+          "editorMode": "builder",
+          "expr": "histogram_quantile(0.99, sum by(le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket[$__rate_interval]))) * 1000",
           "fromExploreMetrics": true,
           "interval": "",
           "legendFormat": "99th Percentile",
+          "range": true,
           "refId": "hostlookuper_dns_lookup_duration_seconds_bucket-p99-histogram_quantile"
         },
         {
@@ -1131,10 +1252,12 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "histogram_quantile(0.9,sum by (le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{ }[$__rate_interval])))",
+          "editorMode": "builder",
+          "expr": "histogram_quantile(0.9, sum by(le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket[$__rate_interval]))) * 1000",
           "fromExploreMetrics": true,
           "interval": "",
           "legendFormat": "90th Percentile",
+          "range": true,
           "refId": "hostlookuper_dns_lookup_duration_seconds_bucket-p90-histogram_quantile"
         },
         {
@@ -1143,14 +1266,16 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "expr": "histogram_quantile(0.5,sum by (le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{ }[$__rate_interval])))",
+          "editorMode": "builder",
+          "expr": "histogram_quantile(0.5, sum by(le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket[$__rate_interval]))) * 1000",
           "fromExploreMetrics": true,
           "interval": "",
           "legendFormat": "50th Percentile",
+          "range": true,
           "refId": "hostlookuper_dns_lookup_duration_seconds_bucket-p50-histogram_quantile"
         }
       ],
-      "title": "AC - Probe Latency Percentiles",
+      "title": "AC - Probe Latency Percentiles (ms)",
       "type": "timeseries"
     },
     {
@@ -1218,7 +1343,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 24
+        "y": 25
       },
       "id": 23,
       "options": {
@@ -1242,8 +1367,8 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "editorMode": "code",
-          "expr": "histogram_quantile(0.99,sum by (le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{cluster=\"zurich-cluster\"}[$__rate_interval])))",
+          "editorMode": "builder",
+          "expr": "histogram_quantile(0.99, sum by(le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{cluster=\"zurich-cluster\"}[$__rate_interval]))) * 1000",
           "fromExploreMetrics": true,
           "interval": "",
           "legendFormat": "99th Percentile",
@@ -1256,8 +1381,8 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "editorMode": "code",
-          "expr": "histogram_quantile(0.9,sum by (le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{cluster=\"zurich-cluster\"}[$__rate_interval])))",
+          "editorMode": "builder",
+          "expr": "histogram_quantile(0.9, sum by(le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{cluster=\"zurich-cluster\"}[$__rate_interval]))) * 1000",
           "fromExploreMetrics": true,
           "interval": "",
           "legendFormat": "90th Percentile",
@@ -1270,8 +1395,8 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "editorMode": "code",
-          "expr": "histogram_quantile(0.5,sum by (le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{cluster=\"zurich-cluster\"}[$__rate_interval])))",
+          "editorMode": "builder",
+          "expr": "histogram_quantile(0.5, sum by(le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{cluster=\"zurich-cluster\"}[$__rate_interval]))) * 1000",
           "fromExploreMetrics": true,
           "interval": "",
           "legendFormat": "50th Percentile",
@@ -1279,7 +1404,7 @@
           "refId": "hostlookuper_dns_lookup_duration_seconds_bucket-p50-histogram_quantile"
         }
       ],
-      "title": "Zurich - Probe Latency Percentiles",
+      "title": "Zurich - Probe Latency Percentiles (ms)",
       "type": "timeseries"
     },
     {
@@ -1347,7 +1472,7 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 24
+        "y": 25
       },
       "id": 24,
       "options": {
@@ -1371,8 +1496,8 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "editorMode": "code",
-          "expr": "histogram_quantile(0.99,sum by (le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{cluster=\"berne-cluster\"}[$__rate_interval])))",
+          "editorMode": "builder",
+          "expr": "histogram_quantile(0.99, sum by(le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{cluster=\"berne-cluster\"}[$__rate_interval]))) * 1000",
           "fromExploreMetrics": true,
           "interval": "",
           "legendFormat": "99th Percentile",
@@ -1385,8 +1510,8 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "editorMode": "code",
-          "expr": "histogram_quantile(0.9,sum by (le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{cluster=\"berne-cluster\"}[$__rate_interval])))",
+          "editorMode": "builder",
+          "expr": "histogram_quantile(0.9, sum by(le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{cluster=\"berne-cluster\"}[$__rate_interval]))) * 1000",
           "fromExploreMetrics": true,
           "interval": "",
           "legendFormat": "90th Percentile",
@@ -1399,8 +1524,8 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "editorMode": "code",
-          "expr": "histogram_quantile(0.5,sum by (le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{cluster=\"berne-cluster\"}[$__rate_interval])))",
+          "editorMode": "builder",
+          "expr": "histogram_quantile(0.5, sum by(le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{cluster=\"berne-cluster\"}[$__rate_interval]))) * 1000",
           "fromExploreMetrics": true,
           "interval": "",
           "legendFormat": "50th Percentile",
@@ -1408,7 +1533,7 @@
           "refId": "hostlookuper_dns_lookup_duration_seconds_bucket-p50-histogram_quantile"
         }
       ],
-      "title": "Berne - Probe Latency Percentiles",
+      "title": "Berne - Probe Latency Percentiles (ms)",
       "type": "timeseries"
     },
     {
@@ -1476,7 +1601,7 @@
         "h": 8,
         "w": 8,
         "x": 0,
-        "y": 32
+        "y": 33
       },
       "id": 28,
       "options": {
@@ -1500,8 +1625,8 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "editorMode": "code",
-          "expr": "histogram_quantile(0.99,sum by (le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{cluster=\"berne-cluster\"}[$__rate_interval])))",
+          "editorMode": "builder",
+          "expr": "histogram_quantile(0.99, sum by(le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{cluster=\"berne-cluster\"}[$__rate_interval]))) * 1000",
           "fromExploreMetrics": true,
           "interval": "",
           "legendFormat": "99th Percentile berne-cluster",
@@ -1513,8 +1638,8 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "editorMode": "code",
-          "expr": "histogram_quantile(0.99,sum by (le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{cluster=\"zurich-cluster\"}[$__rate_interval])))",
+          "editorMode": "builder",
+          "expr": "histogram_quantile(0.99, sum by(le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{cluster=\"zurich-cluster\"}[$__rate_interval]))) * 1000",
           "hide": false,
           "instant": false,
           "legendFormat": "99th Percentile zurich-cluster",
@@ -1522,7 +1647,7 @@
           "refId": "A"
         }
       ],
-      "title": "99th - Probe Latency Percentiles",
+      "title": "99th - Probe Latency Percentiles (ms)",
       "type": "timeseries"
     },
     {
@@ -1590,7 +1715,7 @@
         "h": 8,
         "w": 8,
         "x": 8,
-        "y": 32
+        "y": 33
       },
       "id": 31,
       "options": {
@@ -1614,8 +1739,8 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "editorMode": "code",
-          "expr": "histogram_quantile(0.9,sum by (le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{cluster=\"berne-cluster\"}[$__rate_interval])))",
+          "editorMode": "builder",
+          "expr": "histogram_quantile(0.9, sum by(le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{cluster=\"berne-cluster\"}[$__rate_interval]))) * 1000",
           "fromExploreMetrics": true,
           "interval": "",
           "legendFormat": "90th Percentile berne-cluster",
@@ -1627,8 +1752,8 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "editorMode": "code",
-          "expr": "histogram_quantile(0.9,sum by (le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{cluster=\"zurich-cluster\"}[$__rate_interval])))",
+          "editorMode": "builder",
+          "expr": "histogram_quantile(0.9, sum by(le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{cluster=\"zurich-cluster\"}[$__rate_interval]))) * 1000",
           "hide": false,
           "instant": false,
           "legendFormat": "90th Percentile zurich-cluster",
@@ -1636,7 +1761,7 @@
           "refId": "A"
         }
       ],
-      "title": "90th - Probe Latency Percentiles",
+      "title": "90th - Probe Latency Percentiles (ms)",
       "type": "timeseries"
     },
     {
@@ -1704,7 +1829,7 @@
         "h": 8,
         "w": 8,
         "x": 16,
-        "y": 32
+        "y": 33
       },
       "id": 32,
       "options": {
@@ -1728,8 +1853,8 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "editorMode": "code",
-          "expr": "histogram_quantile(0.5,sum by (le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{cluster=\"berne-cluster\"}[$__rate_interval])))",
+          "editorMode": "builder",
+          "expr": "histogram_quantile(0.5, sum by(le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{cluster=\"berne-cluster\"}[$__rate_interval]))) * 1000",
           "fromExploreMetrics": true,
           "interval": "",
           "legendFormat": "50th Percentile berne-cluster",
@@ -1741,8 +1866,8 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "editorMode": "code",
-          "expr": "histogram_quantile(0.5,sum by (le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{cluster=\"zurich-cluster\"}[$__rate_interval])))",
+          "editorMode": "builder",
+          "expr": "histogram_quantile(0.5, sum by(le) (rate(hostlookuper_dns_lookup_duration_seconds_bucket{cluster=\"zurich-cluster\"}[$__rate_interval]))) * 1000",
           "hide": false,
           "instant": false,
           "legendFormat": "50th Percentile zurich-cluster",
@@ -1750,7 +1875,7 @@
           "refId": "A"
         }
       ],
-      "title": "50th - Probe Latency Percentiles",
+      "title": "50th - Probe Latency Percentiles (ms)",
       "type": "timeseries"
     },
     {
@@ -1784,10 +1909,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 3,
+        "h": 9,
+        "w": 2,
         "x": 0,
-        "y": 40
+        "y": 41
       },
       "id": 18,
       "options": {
@@ -1821,7 +1946,7 @@
           "refId": "A"
         }
       ],
-      "title": "K8s DNS - All Cluster",
+      "title": "K8s DNS Trafifc",
       "type": "stat"
     },
     {
@@ -1840,12 +1965,12 @@
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
-            "axisSoftMax": 50,
+            "axisSoftMax": 75,
             "axisSoftMin": 0,
             "barAlignment": 0,
             "barWidthFactor": 0.6,
             "drawStyle": "line",
-            "fillOpacity": 8,
+            "fillOpacity": 15,
             "gradientMode": "hue",
             "hideFrom": {
               "legend": false,
@@ -1870,6 +1995,7 @@
               "mode": "off"
             }
           },
+          "fieldMinMax": false,
           "mappings": [],
           "min": 0,
           "thresholds": {
@@ -1878,10 +2004,6 @@
               {
                 "color": "green",
                 "value": 0
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
           }
@@ -1889,22 +2011,26 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 7,
-        "x": 3,
-        "y": 40
+        "h": 9,
+        "w": 6,
+        "x": 2,
+        "y": 41
       },
       "id": 1,
       "options": {
         "legend": {
-          "calcs": [],
-          "displayMode": "list",
+          "calcs": [
+            "mean",
+            "min",
+            "max"
+          ],
+          "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
         },
         "tooltip": {
           "hideZeros": false,
-          "mode": "single",
+          "mode": "multi",
           "sort": "none"
         }
       },
@@ -1922,7 +2048,7 @@
           "refId": "A"
         }
       ],
-      "title": "K8s DNS - All Cluster",
+      "title": "K8s DNS - Traffic",
       "type": "timeseries"
     },
     {
@@ -1982,21 +2108,25 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "ms"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 7,
-        "x": 10,
-        "y": 40
+        "h": 9,
+        "w": 9,
+        "x": 8,
+        "y": 41
       },
       "id": 25,
       "options": {
         "legend": {
-          "calcs": [],
-          "displayMode": "list",
+          "calcs": [
+            "mean",
+            "stdDev"
+          ],
+          "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
         },
@@ -2014,16 +2144,16 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "editorMode": "code",
-          "expr": "sum by (cluster) (\n  rate(coredns_dns_request_duration_seconds_sum{role=\"kubedns\"}[$__rate_interval])\n)\n/\nsum by (cluster) (\n  rate(coredns_dns_request_duration_seconds_count{role=\"kubedns\"}[$__rate_interval])\n)",
+          "editorMode": "builder",
+          "expr": "(sum by(cluster) (rate(coredns_dns_request_duration_seconds_sum{role=\"kubedns\"}[$__rate_interval])) * 1000) / (sum by(cluster) (rate(coredns_dns_request_duration_seconds_count{role=\"kubedns\"}[$__rate_interval])))",
           "fromExploreMetrics": true,
           "interval": "",
-          "legendFormat": "Avg Latency {{cluster}}",
+          "legendFormat": "Latency {{cluster}}",
           "range": true,
           "refId": "Avg Latency"
         }
       ],
-      "title": "AC - K8s DNS Latency Average",
+      "title": "K8s DNS Latency Average",
       "type": "timeseries"
     },
     {
@@ -2083,21 +2213,25 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "ms"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
+        "h": 9,
         "w": 7,
         "x": 17,
-        "y": 40
+        "y": 41
       },
       "id": 35,
       "options": {
         "legend": {
-          "calcs": [],
-          "displayMode": "list",
+          "calcs": [
+            "min",
+            "max"
+          ],
+          "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
         },
@@ -2116,7 +2250,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "stddev_over_time(\n  (\n    sum by (cluster) (\n      rate(coredns_dns_request_duration_seconds_sum{job=\"kube-dns\"}[$__rate_interval])\n    )\n    /\n    sum by (cluster) (\n      rate(coredns_dns_request_duration_seconds_count{job=\"kube-dns\"}[$__rate_interval])\n    )\n  )[2m:]\n)",
+          "expr": "stddev_over_time(\n  (\n    sum by (cluster) (\n      rate(coredns_dns_request_duration_seconds_sum{job=\"kube-dns\"}[$__rate_interval])\n    )\n    /\n    sum by (cluster) (\n      rate(coredns_dns_request_duration_seconds_count{job=\"kube-dns\"}[$__rate_interval])\n    )\n  )[$observation_window:]\n) * 1000",
           "fromExploreMetrics": true,
           "interval": "",
           "legendFormat": "Jitter {{cluster}}",
@@ -2159,9 +2293,9 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 3,
+        "w": 2,
         "x": 0,
-        "y": 48
+        "y": 50
       },
       "id": 20,
       "options": {
@@ -2195,7 +2329,7 @@
           "refId": "A"
         }
       ],
-      "title": "Forwarder - All Cluster",
+      "title": "Forwarder Traffic",
       "type": "stat"
     },
     {
@@ -2219,7 +2353,7 @@
             "barAlignment": 0,
             "barWidthFactor": 0.6,
             "drawStyle": "line",
-            "fillOpacity": 11,
+            "fillOpacity": 15,
             "gradientMode": "hue",
             "hideFrom": {
               "legend": false,
@@ -2264,15 +2398,19 @@
       },
       "gridPos": {
         "h": 8,
-        "w": 7,
-        "x": 3,
-        "y": 48
+        "w": 6,
+        "x": 2,
+        "y": 50
       },
       "id": 3,
       "options": {
         "legend": {
-          "calcs": [],
-          "displayMode": "list",
+          "calcs": [
+            "mean",
+            "min",
+            "max"
+          ],
+          "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
         },
@@ -2296,7 +2434,7 @@
           "refId": "A"
         }
       ],
-      "title": "Forwarder - All Cluster",
+      "title": "Forwarder - Traffic",
       "type": "timeseries"
     },
     {
@@ -2350,33 +2488,33 @@
               {
                 "color": "green",
                 "value": 0
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
-          }
+          },
+          "unit": "ms"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 8,
-        "w": 7,
-        "x": 10,
-        "y": 48
+        "w": 9,
+        "x": 8,
+        "y": 50
       },
       "id": 26,
       "options": {
         "legend": {
-          "calcs": [],
-          "displayMode": "list",
+          "calcs": [
+            "mean",
+            "stdDev"
+          ],
+          "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
         },
         "tooltip": {
           "hideZeros": false,
-          "mode": "single",
+          "mode": "multi",
           "sort": "none"
         }
       },
@@ -2388,16 +2526,16 @@
             "type": "prometheus",
             "uid": "prometheus"
           },
-          "editorMode": "code",
-          "expr": "sum by (cluster) (\n  rate(coredns_dns_request_duration_seconds_sum{role=\"forwarder-dns-server\"}[$__rate_interval])\n)\n/\nsum by (cluster) (\n  rate(coredns_dns_request_duration_seconds_count{role=\"forwarder-dns-server\"}[$__rate_interval])\n)",
+          "editorMode": "builder",
+          "expr": "(sum by(cluster) (rate(coredns_dns_request_duration_seconds_sum{role=\"forwarder-dns-server\"}[$__rate_interval])) * 1000) / (sum by(cluster) (rate(coredns_dns_request_duration_seconds_count{role=\"forwarder-dns-server\"}[$__rate_interval])))",
           "fromExploreMetrics": true,
           "interval": "",
-          "legendFormat": "Avg Latency {{cluster}}",
+          "legendFormat": "Latency {{cluster}}",
           "range": true,
           "refId": "Avg Latency"
         }
       ],
-      "title": "AC - Forwarder DNS Latency Average",
+      "title": "Forwarder DNS Latency Average",
       "type": "timeseries"
     },
     {
@@ -2457,7 +2595,8 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "ms"
         },
         "overrides": []
       },
@@ -2465,13 +2604,16 @@
         "h": 8,
         "w": 7,
         "x": 17,
-        "y": 48
+        "y": 50
       },
       "id": 36,
       "options": {
         "legend": {
-          "calcs": [],
-          "displayMode": "list",
+          "calcs": [
+            "min",
+            "max"
+          ],
+          "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
         },
@@ -2490,7 +2632,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "stddev_over_time(\n  (\n    sum by (cluster) (\n      rate(coredns_dns_request_duration_seconds_sum{job=\"forwarder\"}[$__rate_interval])\n    )\n    /\n    sum by (cluster) (\n      rate(coredns_dns_request_duration_seconds_count{job=\"forwarder\"}[$__rate_interval])\n    )\n  )[2m:]\n)",
+          "expr": "stddev_over_time(\n  (\n    sum by (cluster) (\n      rate(coredns_dns_request_duration_seconds_sum{job=\"forwarder\"}[$__rate_interval])\n    )\n    /\n    sum by (cluster) (\n      rate(coredns_dns_request_duration_seconds_count{job=\"forwarder\"}[$__rate_interval])\n    )\n  )[$observation_window:]\n)* 1000",
           "fromExploreMetrics": true,
           "interval": "",
           "legendFormat": "Jitter {{cluster}}",
@@ -2532,10 +2674,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 3,
+        "h": 9,
+        "w": 2,
         "x": 0,
-        "y": 56
+        "y": 58
       },
       "id": 5,
       "options": {
@@ -2565,7 +2707,7 @@
           "refId": "A"
         }
       ],
-      "title": "PDNS - UDP - IPv4 - All Clusters",
+      "title": "PDNS - Traffic",
       "type": "stat"
     },
     {
@@ -2617,7 +2759,6 @@
           },
           "mappings": [],
           "max": 110,
-          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -2635,16 +2776,20 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 7,
-        "x": 3,
-        "y": 56
+        "h": 9,
+        "w": 6,
+        "x": 2,
+        "y": 58
       },
       "id": 21,
       "options": {
         "legend": {
-          "calcs": [],
-          "displayMode": "list",
+          "calcs": [
+            "mean",
+            "min",
+            "max"
+          ],
+          "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
         },
@@ -2664,7 +2809,7 @@
           "refId": "A"
         }
       ],
-      "title": "PDNS - UDP - IPv4 - All Clusters",
+      "title": "PDNS - Traffic",
       "type": "timeseries"
     },
     {
@@ -2724,21 +2869,25 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "ms"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
-        "w": 7,
-        "x": 10,
-        "y": 56
+        "h": 9,
+        "w": 9,
+        "x": 8,
+        "y": 58
       },
       "id": 27,
       "options": {
         "legend": {
-          "calcs": [],
-          "displayMode": "list",
+          "calcs": [
+            "mean",
+            "stdDev"
+          ],
+          "displayMode": "table",
           "placement": "bottom",
           "showLegend": true
         },
@@ -2760,7 +2909,7 @@
           "expr": "avg by (cluster) (pdns_auth_latency{ role=\"auth-dns-server\"})",
           "fromExploreMetrics": true,
           "interval": "",
-          "legendFormat": "Avg Latency {{cluster}} ms",
+          "legendFormat": "Latency {{cluster}}",
           "range": true,
           "refId": "Avg Latency"
         }
@@ -2825,20 +2974,24 @@
                 "value": 80
               }
             ]
-          }
+          },
+          "unit": "ms"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 8,
+        "h": 9,
         "w": 7,
         "x": 17,
-        "y": 56
+        "y": 58
       },
       "id": 37,
       "options": {
         "legend": {
-          "calcs": [],
+          "calcs": [
+            "min",
+            "max"
+          ],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": true
@@ -2858,7 +3011,7 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "stddev_over_time(\n  (\n    sum by (cluster) (\n      rate(pdns_auth_backend_latency[$__rate_interval])\n    )\n  )[2m:]\n)",
+          "expr": "stddev_over_time(\n  (\n    sum by (cluster) (\n      rate(pdns_auth_backend_latency[$__rate_interval])\n    )\n  )[$observation_window:]\n)",
           "fromExploreMetrics": true,
           "interval": "",
           "legendFormat": "Jitter {{cluster}}",
@@ -2935,7 +3088,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 64
+        "y": 67
       },
       "id": 2,
       "options": {
@@ -3030,7 +3183,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 72
+        "y": 75
       },
       "id": 4,
       "options": {
@@ -3061,19 +3214,51 @@
     }
   ],
   "preload": false,
-  "refresh": "auto",
+  "refresh": "",
   "schemaVersion": 42,
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "current": {
+          "text": "1m",
+          "value": "1m"
+        },
+        "name": "observation_window",
+        "options": [
+          {
+            "selected": false,
+            "text": "45s",
+            "value": "45s"
+          },
+          {
+            "selected": true,
+            "text": "1m",
+            "value": "1m"
+          },
+          {
+            "selected": false,
+            "text": "90s",
+            "value": "90s"
+          },
+          {
+            "selected": false,
+            "text": "2m",
+            "value": "2m"
+          }
+        ],
+        "query": "45s,1m,90s,2m",
+        "type": "custom"
+      }
+    ]
   },
   "time": {
-    "from": "now-5m",
-    "to": "now"
+    "from": "2025-12-26T19:20:00.000Z",
+    "to": "2025-12-26T19:27:00.000Z"
   },
   "timepicker": {},
   "timezone": "browser",
   "title": "Setup Dashboard",
   "uid": "adjtfmqy",
-  "version": 18
+  "version": 79
 }
